@@ -65,7 +65,6 @@ app.get("/apk", async (req, res) => {
         req.query["x86"] && "x86",
         req.query["x86_64"] && "x86_64",
     ].filter(Boolean).join(",");
-    console.log(abis);
     try {
         const links = await rm.get("/apk?id=" + encodeURIComponent(id) + "&abis=" + encodeURIComponent(abis));
         res.redirect(links[0]);
