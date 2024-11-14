@@ -3,7 +3,29 @@
     <%- include("parts/head") %>
     <body>
         <div class="center">
-            <h1 class="tcenter">Search results</h1>
+            <h1 class="tcenter">Search results (page <%= page + 1 %>)</h1>
+            <div class="pagination">
+                <% if(!isFirst) { %>
+                    <form action="/search">
+                        <input name="query" hidden value="<%= query %>">
+                        <input name="page" hidden value="<%= page - 1 %>">
+                        <input type="submit" class="blocky" value="Previous">
+                    </form>
+                <% } %>
+                <% if(!isLast) { %>
+                    <form action="/search">
+                        <input name="query" hidden value="<%= query %>">
+                        <input name="page" hidden value="<%= page + 1 %>">
+                        <input type="submit" class="blocky" value="Next">
+                    </form>
+                <% } %>
+                <form action="/search">
+                    <input name="query" hidden value="<%= query %>">
+                    <input name="sub1" hidden value="yes">
+                    <input name="page" class="blocky search" type="number" min="1" max="<%= max %>">
+                    <input type="submit" class="blocky" value="Go to page">
+                </form>
+            </div><br>
             <div class="flex apps">
                 <% apps.forEach(app => { %>
                     <%- include("parts/app", { app }) %>

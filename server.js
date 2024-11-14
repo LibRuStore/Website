@@ -5,6 +5,7 @@ import { join } from "path";
 import { readFileSync } from "fs";
 
 const { API_ADDR } = process.env;
+const PER_PAGE = 20;
 
 const rm = new RequestMaker(API_ADDR);
 
@@ -27,11 +28,23 @@ app.get("/", (_req, res) => {
 
 app.get("/search", async (req, res) => {
     const query = req.query.query;
+    let page = parseInt(req.query.page);
+    if(req.query.sub1) page--;
+    // TODO: move these to a separate function
+    if(page === null || page === undefined || page === NaN) return res.status(400).send(loadEjs({
+        "title": "Error",
+        "error": "Bad request"
+    }, "error.ejs"));
     try {
-        const apps = await rm.get("/search?query=" + encodeURIComponent(query));
+        const result = await rm.get(`/search?query=${encodeURIComponent(query)}&page=${page}&per_page=${PER_PAGE}`);
         res.status(200).send(loadEjs({
             "title": query + "LibRuStore",
-            "apps": apps
+            "query": query,
+            "page": page,
+            "apps": result.apps,
+            "isFirst": page == 0,
+            "isLast": result.total == page * PER_PAGE + result.apps.length,
+            "max": Math.ceil(result.total / PER_PAGE)
         }, "search.ejs"));
     } catch(e) {
         res.status(500).send(loadEjs({
