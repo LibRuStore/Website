@@ -1,0 +1,30 @@
+{
+  "name": "librustore-website",
+  "version": "0.1.0",
+  "description": "The LibRuStore website for downloading APKs from RuStore without all the trackers",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LibRuStore/Website.git"
+  },
+  "keywords": [
+    "librustore",
+    "rustore",
+    "website"
+  ],
+  "author": "Milk_Cool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LibRuStore/Website/issues"
+  },
+  "homepage": "https://github.com/LibRuStore/Website#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "librustore-apiwrapper": "^0.1.2"
+  }
+}

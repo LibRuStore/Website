@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <%- include("parts/head") %>
+    <body>
+        <div class="center">
+            <h1 class="tcenter">Search results</h1>
+            <div class="flex apps">
+                <% apps.forEach(app => { %>
+                    <%- include("parts/app", { app }) %>
+                <% }); %>
+            </div>
+        </div>
+    </body>
+</html>

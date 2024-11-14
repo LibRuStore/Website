@@ -1,0 +1,76 @@
+* {
+    font-family: sans-serif;
+}
+
+.center {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.tcenter {
+    text-align: center;
+}
+
+.blocky, .r {
+    border-radius: 1em;
+}
+.blocky {
+    padding: 1em;
+    margin: 1em;
+    font-size: large;
+}
+
+.search {
+    border: 1px solid darkslategray;
+}
+
+input[type="submit"] {
+    background: dodgerblue;
+    color: white;
+    border: 1px solid dodgerblue;
+    cursor: pointer;
+}
+
+.flex, .app {
+    display: flex;
+}
+
+.apps {
+    flex-wrap: wrap;
+}
+
+.ib {
+    display: inline-block;
+}
+
+.icon {
+    width: 5em;
+    height: 5em;
+    margin-right: 1em;
+}
+
+.app {
+    background: gainsboro;
+    max-width: 25em;
+}
+
+.black {
+    color: black;
+}
+
+.vc {
+    vertical-align: middle;
+}
+
+.error {
+    color: red;
+}
+
+.desc {
+    max-width: 80vw;
+    text-wrap: pretty;
+}

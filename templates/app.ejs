@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <%- include("parts/head") %>
+    <body>
+        <div class="center">
+            <h1 class="tcenter"><%= info.meta.fullName %></h1>
+            <h3 class="tcenter"><%= info.meta.shortDescription %></h3>
+
+            <h5 class="tcenter"><%= info.meta.company %> | <%= info.meta.age %></h5>
+            <h5 class="tcenter">~<%= info.downloads %> downloads</h5>
+            
+            <form action="/apk" class="tcenter">
+                <input name="id" value="<%= info.appID %>" hidden>
+                
+                <input type="checkbox" name="armeabi-v7a" id="abi1" checked><label for="abi1">armeabi-v7a</label>
+                <input type="checkbox" name="arm64-v8a" id="abi2" checked><label for="abi2">arm64-v8a</label>
+                <br>
+                <input type="checkbox" name="x86" id="abi3"><label for="abi3">x86</label>
+                <input type="checkbox" name="x86_64" id="abi4"><label for="abi4">x86_64</label>
+                <br>
+
+                <input type="submit" class="blocky" value="Download">
+            </form>
+
+            <pre class="desc"><%= info.meta.fullDescription %></pre>
+        </div>
+    </body>
+</html>
