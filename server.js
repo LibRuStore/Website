@@ -38,7 +38,7 @@ app.get("/search", async (req, res) => {
     try {
         const result = await rm.get(`/search?query=${encodeURIComponent(query)}&page=${page}&per_page=${PER_PAGE}`);
         res.status(200).send(loadEjs({
-            "title": query + "LibRuStore",
+            "title": query + " | LibRuStore",
             "query": query,
             "page": page,
             "apps": result.apps,

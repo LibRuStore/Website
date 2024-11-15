@@ -1,6 +1,6 @@
 {
   "name": "librustore-website",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The LibRuStore website for downloading APKs from RuStore without all the trackers",
   "main": "index.js",
   "type": "module",
